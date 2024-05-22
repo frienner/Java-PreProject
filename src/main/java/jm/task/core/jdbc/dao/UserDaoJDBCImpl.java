@@ -2,6 +2,7 @@ package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
+import jm.task.core.jdbc.util.UtilJDBC;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,7 +14,7 @@ public class UserDaoJDBCImpl implements UserDao {
     private final Connection connection;
 
     public UserDaoJDBCImpl() {
-        Util db = new Util();
+        UtilJDBC db = new UtilJDBC();
         this.connection = db.connectToDB("postgres", "postgres", "xwnFSgG6");
     }
 

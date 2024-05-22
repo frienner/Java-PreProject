@@ -7,21 +7,20 @@ import jm.task.core.jdbc.service.UserServiceImpl;
 import jm.task.core.jdbc.util.Util;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        List<User> users = new ArrayList<>();
         UserService userService = new UserServiceImpl();
         userService.createUsersTable();
         userService.cleanUsersTable();
-        userService.saveUser("Илья", "Зубков", (byte)21);
-        userService.saveUser("Илья", "Логуненок", (byte)20);
-        userService.saveUser("Илья", "Варламов", (byte)37);
-        List<User> users = userService.getAllUsers();
-        for (User user : users) {
-            System.out.println(user);
-        }
-//        userService.removeUserById(2);
+        userService.saveUser("Кирилл", "Юртанов", (byte)21);
+        userService.saveUser("Илья", "Зубков", (byte)22);
+        userService.saveUser("Алексей", "Капущак", (byte)23);
+        users = userService.getAllUsers();
+        userService.dropUsersTable();
 
     }
 }
