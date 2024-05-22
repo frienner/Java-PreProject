@@ -20,7 +20,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void createUsersTable() {
         Statement statement;
         try {
-            String query = "CREATE TABLE Users (" +
+            String query = "CREATE TABLE IF NOT EXISTS Users (" +
                     "Id SERIAL PRIMARY KEY, " +
                     "FirstName CHARACTER VARYING(50), " +
                     "LastName CHARACTER VARYING(50), " +
